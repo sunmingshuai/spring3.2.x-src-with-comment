@@ -42,6 +42,7 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * 支持解析@Qualifier, @javax.inject.Qualifier, @Value注解的解析适配工作
  * {@link AutowireCandidateResolver} implementation that matches bean definition qualifiers
  * against {@link Qualifier qualifier annotations} on the field or parameter to be autowired.
  * Also supports suggested expression values through a {@link Value value} annotation.

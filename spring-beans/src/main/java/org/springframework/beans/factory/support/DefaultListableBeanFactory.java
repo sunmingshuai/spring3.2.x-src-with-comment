@@ -101,6 +101,7 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 	private boolean allowEagerClassLoading = true;
 
 	/** Resolver to use for checking if a bean definition is an autowire candidate */
+	//QualifierAnnotationAutowireCandidateResolver
 	private AutowireCandidateResolver autowireCandidateResolver = new SimpleAutowireCandidateResolver();
 
 	/** Map from dependency type to corresponding autowired value */

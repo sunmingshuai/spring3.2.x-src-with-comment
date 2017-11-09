@@ -522,7 +522,7 @@ public class BeanDefinitionParserDelegate {
 			if (ele.hasAttribute(PARENT_ATTRIBUTE)) {
 				parent = ele.getAttribute(PARENT_ATTRIBUTE);
 			}
-			//GenericBeanDefinition 设置className parentName变量
+			//GenericBeanDefinition 设置beanClassName parentName变量
 			AbstractBeanDefinition bd = createBeanDefinition(className, parent);//
 
 			//解析元素属性 例如scope lazy-init factory-method等属性的解析
@@ -539,8 +539,7 @@ public class BeanDefinitionParserDelegate {
 
 			//todo <constructor-arg index="i"></constructor-arg>
 			parseConstructorArgElements(ele, bd);
-			//<property name="" value=""/> or more complex property such as list,map 阅读源代码 我们要有的放矢
-			// 没必要把每一行都看懂 就像下面的解析构造参数 与 property一样 都是很复杂的 但我们没必要都读懂才行
+			//<property name="" value=""/> or more complex property such as list,map 阅读源代码 可以有的放矢
 			parsePropertyElements(ele, bd);
 			//<qualifier />
 			parseQualifierElements(ele, bd);
@@ -604,6 +603,7 @@ public class BeanDefinitionParserDelegate {
 		bd.setLazyInit(TRUE_VALUE.equals(lazyInit));
 
 		String autowire = ele.getAttribute(AUTOWIRE_ATTRIBUTE);
+		//如果是用@Autowired注解 但是没有配置autowire属性 就不会自动注入?
 		bd.setAutowireMode(getAutowireMode(autowire));
 
 		String dependencyCheck = ele.getAttribute(DEPENDENCY_CHECK_ATTRIBUTE);

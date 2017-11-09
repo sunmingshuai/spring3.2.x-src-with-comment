@@ -238,6 +238,7 @@ public abstract class AbstractBeanDefinitionReader implements EnvironmentCapable
 	}
 
 	public int loadBeanDefinitions(String... locations) throws BeanDefinitionStoreException {
+		
 		Assert.notNull(locations, "Location array must not be null");
 		int counter = 0;
 		for (String location : locations) {
